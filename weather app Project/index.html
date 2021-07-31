@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/0986a9ce9c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row all">
+        <div class="col-1">
+          <button type="button" class="btn btn-light mt-5 citylabel">
+            City:
+          </button>
+        </div>
+        <div class="col-8 mt-5">
+          <form>
+            <input
+              class="form-control border $gray-300"
+              list="datalistOptions"
+              id="exampleDataList"
+              placeholder="Enter city here"
+              autofocus="on"
+            />
+
+            <datalist id="datalistOptions">
+              <option value="Manchester"></option>
+              <option value="Liverpool"></option>
+              <option value="Birmingham"></option>
+              <option value="London"></option>
+              <option value="Leeds"></option>
+            </datalist>
+
+            <div class="d-grid gap-2">
+              <button
+                class="btn btn-outline-light placeSubmit mt-2"
+                type="submit"
+                id="geolocation"
+              >
+                Search
+              </button>
+              <button
+                type="button"
+                class="btn btn-light mt-1 citylabel"
+                id="currentlocation"
+              >
+                📌Use Current Location
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-11 mt-3">
+          <div class="card mainsection card border $gray-300">
+            <img
+              class="imageHead"
+              src="Images/undraw_Weather_re_qsmd.png"
+              alt="Weather app header"
+            />
+
+            <div class="card-body">
+              <div class="row">
+                <div class="col-7">
+                  <h1 id="city"></h1>
+                </div>
+                <div class="col-4">
+                  <h7>Updated - 2min ago</h7>
+                </div>
+
+                <div class="row">
+                  <div class="col-8">
+                    <div class="today" id="today-day">Today</div>
+                  </div>
+
+                  <div class="todayWeatherSummary mt-1">
+                    <span id="description"></span>
+                  </div>
+                  <br />
+                  <br />
+                  <div>Bring a Brolly <i class="fas fa-umbrella"></i></div>
+                  <div
+                    class="card card border-light todaysWeather mainCard"
+                    style="width: 10rem"
+                  >
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-12">
+                          <i class="fas fa-cloud-rain todayWeatherImage"></i>
+                        </div>
+                      </div>
+                      <div class="row justify-content-md-center">
+                        <div class="col-md-auto">
+                          <div class="tempCelcius" id="temp-celcuis"></div>
+                        </div>
+                        <div class="col-md-auto">
+                          <a class="celciusUnit" id="celius-unit" href="">°C</a>
+                        </div>
+                        <div class="col-md-auto">
+                          <span
+                            ><a class="farenheit" id="farenheit-temp" href=""
+                              >°F</a
+                            >
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card border-$gray-300" style="width: 10rem">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        Feels Like: <span id="feelslike">100%</span>
+                      </li>
+                      <li class="list-group-item">
+                        Humidity: <span id="humidity">80%</span>
+                      </li>
+                      <li class="list-group-item">
+                        Wind:<span id="windspeed">80%</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="col">
+                    <table
+                      class="
+                        table table-secondary table-striped table-borderless
+                      "
+                    >
+                      <thead>
+                        <tr>
+                          <th scope="col">
+                            <i class="fas fa-cloud-sun-rain"></i>
+                          </th>
+                          <th scope="col"><i class="fas fa-cloud-rain"></i></th>
+                          <th scope="col">
+                            <i class="fas fa-cloud-showers-heavy"></i>
+                          </th>
+                          <th scope="col">
+                            <i class="fas fa-cloud-sun-rain"></i>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">18°</th>
+                          <td>18°</td>
+                          <td>18°</td>
+                          <td>18°</td>
+                        </tr>
+
+                        <tr>
+                          <th scope="row">2 PM</th>
+                          <td>3 PM</td>
+                          <td>4 PM</td>
+                          <td>5 PM</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="card fiveDayForcast">
+                    <div class="card-body">5 Day Weather Forecast</div>
+                  </div>
+
+                  <table
+                    class="table table-secondary table-striped table-borderless"
+                  >
+                    <thead>
+                      <tr>
+                        <th scope="col">MON</th>
+                        <th scope="col">TUES</th>
+                        <th scope="col">WED</th>
+                        <th scope="col">THURS</th>
+                        <th scope="col">FRI</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row weatherEmojiRow">
+                          <i class="fas fa-sun"></i>
+                        </th>
+                        <td><i class="fas fa-sun"></i></td>
+                        <td><i class="fas fa-sun"></i></td>
+                        <td><i class="fas fa-sun"></i></td>
+                        <td><i class="fas fa-sun"></i></td>
+                      </tr>
+                      <tr>
+                        <th scope="row weekTempRow">20°</th>
+                        <td>20°</td>
+                        <td>21°</td>
+                        <td>22°</td>
+                        <td>22°</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script src="node.js"></script>
+      </div>
+    </div>
+  </body>
+</html>

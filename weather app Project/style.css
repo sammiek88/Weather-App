@@ -1,0 +1,71 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #2f3640;
+}
+
+h7 {
+  font-size: 15px;
+}
+
+.all {
+  color: black;
+}
+
+.citylabel {
+  color: #2f3640;
+}
+
+.citylabel:hover {
+  color: #2f3640;
+  cursor: pointer;
+}
+
+.imageHead {
+  width: 450px; /* you can use % */
+  height: 150px;
+  margin: 0 auto;
+  display: block;
+}
+
+.today {
+  font-size: 20px;
+}
+
+.date {
+  font-size: 20px;
+}
+
+.todayWeatherSummary {
+  font-size: 20px;
+}
+
+.todaysWeather {
+  font-size: 40px;
+}
+
+.otherWeatherDetails {
+  font-size: 10px;
+  list-style: none;
+}
+
+.upcomingWeather {
+  font-size: 40px;
+}
+
+.upcomingWeatherTemp {
+  font-size: 30px;
+}
+
+.farenheit {
+  font-size: 15px;
+  line-height: 6em;
+}
+
+.celciusUnit {
+  font-size: 15px;
+  line-height: 6em;
+}
+.tempCelcius {
+  font-size: 22px;
+  line-height: 4em;
+}
