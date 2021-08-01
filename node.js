@@ -7,6 +7,12 @@ function showweather(response) {
   document.querySelector('#city').innerHTML = response.data.name;
   let latestTemp = document.querySelector('#temp-celcuis');
   latestTemp.innerHTML = Math.round(response.data.main.temp);
+
+  if (latestTemp.innerHTML > 17) {
+    document.querySelector('#brolly').innerHTML = `Its a warm day!😎`;
+  } else {
+    document.querySelector('#brolly').innerHTML = `Don't forget your coat!🧥`;
+  }
   document.querySelector('#humidity').innerHTML = response.data.main.humidity;
   document.querySelector('#feelslike').innerHTML =
     response.data.main.feels_like;
@@ -60,7 +66,6 @@ function convertCelcius(event) {
 let form = document.querySelector('form');
 let now = new Date();
 let utcDay = now.toGMTString();
-let temp = 18;
 
 date();
 
@@ -78,10 +83,6 @@ currentLocationbutton.addEventListener('click', getcurrentlocation);
 
 //default of Manchester
 searchcity('Manchester');
-//api weather data
-//function displayWeather(response) {
-// console.log(response);
-//}
 
 //function changeTemp(event) {
 // event.preventDefault;
