@@ -21,7 +21,7 @@ h7 {
 }
 
 .imageHead {
-  width: 450px; /* you can use % */
+  max-width: 450px; /* you can use % */
   height: 150px;
   margin: 0 auto;
   display: block;
