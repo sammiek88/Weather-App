@@ -73,16 +73,16 @@ ul {
 }
 
 .farenheit {
-  font-size: 10px;
+  font-size: 15px;
   line-height: 6em;
 }
 
 .celciusUnit {
-  font-size: 10px;
+  font-size: 15px;
   line-height: 6em;
 }
 .tempCelcius {
-  font-size: 16px;
+  font-size: 22px;
   line-height: 4em;
   font-weight: 400;
 }

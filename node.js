@@ -19,7 +19,7 @@ function date(timestamp) {
     'Friday',
     'Saturday',
   ];
-  let day = date.getDay();
+  let day = date.getDay(daysweek);
   return `${daysweek[day]} ${hours}:${minutes}`;
 }
 
