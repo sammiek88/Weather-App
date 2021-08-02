@@ -1,12 +1,34 @@
 //change h1 to todays date
-function date() {
-  document.getElementById('today-day').innerHTML = `${utcDay}`;
+function date(timestamp) {
+  console.log();
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let daysweek = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+  let day = date.getDay();
+  return `${daysweek[day]} ${hours}:${minutes}`;
 }
 
 function showweather(response) {
+  console.log(response);
   document.querySelector('#city').innerHTML = response.data.name;
   let latestTemp = document.querySelector('#temp-celcuis');
   latestTemp.innerHTML = Math.round(response.data.main.temp);
+  let dateElement = document.getElementById('today-day');
 
   if (latestTemp.innerHTML > 17) {
     document.querySelector('#brolly').innerHTML = `Its a warm day!😎`;
@@ -19,6 +41,7 @@ function showweather(response) {
   document.querySelector('#windspeed').innerHTML = response.data.wind.speed;
   document.querySelector('#description').innerHTML =
     response.data.weather[0].description;
+  dateElement.innerHTML = date(response.data.dt * 1000);
 }
 
 function searchcity(city) {
@@ -64,10 +87,6 @@ function convertCelcius(event) {
 }
 
 let form = document.querySelector('form');
-let now = new Date();
-let utcDay = now.toGMTString();
-
-date();
 
 form.addEventListener('submit', formEntry);
 
