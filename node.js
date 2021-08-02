@@ -28,6 +28,7 @@ function showweather(response) {
   let latestTemp = document.querySelector('#temp-celcuis');
   latestTemp.innerHTML = Math.round(response.data.main.temp);
   let dateElement = document.getElementById('today-day');
+  let iconElement = document.getElementById('#icon');
 
   if (latestTemp.innerHTML > 17) {
     document.querySelector('#brolly').innerHTML = `Its a warm day!😎`;
@@ -40,6 +41,7 @@ function showweather(response) {
   document.querySelector('#windspeed').innerHTML = response.data.wind.speed;
   document.querySelector('#description').innerHTML =
     response.data.weather[0].description;
+
   dateElement.innerHTML = date(response.data.dt * 1000);
 }
 
