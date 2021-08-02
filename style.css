@@ -34,8 +34,6 @@ ul {
 .imageHead {
   max-width: 450px; /* you can use % */
   height: 150px;
-  margin: 0 auto;
-  display: block;
 }
 
 .today {
