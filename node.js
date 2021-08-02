@@ -24,7 +24,6 @@ function date(timestamp) {
 }
 
 function showweather(response) {
-  console.log(response);
   document.querySelector('#city').innerHTML = response.data.name;
   let latestTemp = document.querySelector('#temp-celcuis');
   latestTemp.innerHTML = Math.round(response.data.main.temp);
