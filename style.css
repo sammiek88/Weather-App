@@ -77,10 +77,20 @@ ul {
   line-height: 6em;
 }
 
-.celciusUnit {
+.celciusStyle {
   font-size: 13px;
   line-height: 6em;
 }
+.active {
+  color: black;
+  text-decoration: none;
+}
+
+.active:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
 .pipe {
   font-size: 13px;
 }

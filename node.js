@@ -83,6 +83,8 @@ function getcurrentlocation(event) {
 
 function farenheitunits(event) {
   event.preventDefault();
+  CelciusLink.classList.add('active');
+  TempFarenheit.classList.remove('active');
   let farenheit = Math.round(TempCelcius * 9) / 5 + 32;
   let celciusTemp = document.getElementById('temp-celcuis');
   celciusTemp.innerHTML = Math.round(farenheit);
@@ -91,6 +93,8 @@ function farenheitunits(event) {
 //convert back to celcius
 function celsiusunits(event) {
   event.preventDefault();
+  CelciusLink.classList.remove('active');
+
   let temperatureElement = document.getElementById('temp-celcuis');
   temperatureElement.innerHTML = Math.round(TempCelcius);
 }
