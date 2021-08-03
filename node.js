@@ -30,6 +30,7 @@ function showweather(response) {
   let dateElement = document.getElementById('today-day');
   let iconElement = document.querySelector('#icon');
   let iconImage = response.data.weather[0].icon;
+  TempCelcius = response.data.main.temp;
 
   if (latestTemp.innerHTML > 17) {
     document.querySelector('#brolly').innerHTML = `Its a warm day!😎`;
@@ -44,7 +45,7 @@ function showweather(response) {
     response.data.weather[0].description;
   iconElement.setAttribute(
     'src',
-    `https://openweathermap.org/img/wn/${iconImage}@2x.png`
+    `https://openweathermap.org/img/wn/${iconImage}.png`
   );
   iconElement.setAttribute('alt', response.data.weather[0].description);
 
@@ -79,29 +80,31 @@ function getcurrentlocation(event) {
 }
 
 //convert temp to fahrenheit
+
 function farenheitunits(event) {
   event.preventDefault();
-  let temp = 18;
-  let farenheit = Math.round(temp * 9) / 5 + 32;
+  let farenheit = Math.round(TempCelcius * 9) / 5 + 32;
   let celciusTemp = document.getElementById('temp-celcuis');
-  celciusTemp.innerHTML = farenheit;
+  celciusTemp.innerHTML = Math.round(farenheit);
 }
-//convert temp to celcius
-function convertCelcius(event) {
+
+//convert back to celcius
+function celsiusunits(event) {
   event.preventDefault();
-  let TempCelcius = document.getElementById('temp-celcuis');
-  TempCelcius.innerHTML = temp;
+  let temperatureElement = document.getElementById('temp-celcuis');
+  temperatureElement.innerHTML = Math.round(TempCelcius);
 }
+
+let TempCelcius = null;
 
 let form = document.querySelector('form');
-
 form.addEventListener('submit', formEntry);
 
 let TempFarenheit = document.getElementById('farenheit-temp');
 TempFarenheit.addEventListener('click', farenheitunits);
 
-let TempCelcius = document.getElementById('temp-celcuis');
-TempCelcius.addEventListener('click', convertCelcius);
+let CelciusLink = document.getElementById('celius-unit');
+CelciusLink.addEventListener('click', celsiusunits);
 
 //Currentlocation
 let currentLocationbutton = document.querySelector('#currentlocation');
