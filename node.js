@@ -79,6 +79,16 @@ function getcurrentlocation(event) {
   navigator.geolocation.getCurrentPosition(searchlocation);
 }
 
+//convert back to celcius
+function celsiusunits(event) {
+  event.preventDefault();
+  TempFarenheit.classList.add('active');
+  CelciusLink.classList.remove('active');
+
+  let temperatureElement = document.getElementById('temp-celcuis');
+  temperatureElement.innerHTML = Math.round(TempCelcius);
+}
+
 //convert temp to fahrenheit
 
 function farenheitunits(event) {
