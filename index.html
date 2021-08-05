@@ -128,7 +128,7 @@
                       Humidity: <span id="humidity">80%</span>
                     </li>
                     <li class="list-group-item">
-                      Wind:<span id="windspeed">80%</span>
+                      Wind: <span id="windspeed">80%</span>
                     </li>
                   </ul>
                 </div>
@@ -172,46 +172,11 @@
                 <div class="card fiveDayForcast">
                   <div class="card-body">5 Day Weather Forecast</div>
                 </div>
-
-                <table
-                  class="table table-secondary table-striped table-borderless"
-                >
-                  <thead>
-                    <tr>
-                      <th scope="col">MON</th>
-                      <th scope="col">TUES</th>
-                      <th scope="col">WED</th>
-                      <th scope="col">THURS</th>
-                      <th scope="col">FRI</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row weatherEmojiRow">
-                        <i class="fas fa-sun"></i>
-                      </th>
-                      <td><i class="fas fa-sun"></i></td>
-                      <td><i class="fas fa-sun"></i></td>
-                      <td><i class="fas fa-sun"></i></td>
-                      <td><i class="fas fa-sun"></i></td>
-                    </tr>
-                    <tr>
-                      <th scope="row weekTempRow">20°</th>
-                      <td>20°</td>
-                      <td>21°</td>
-                      <td>22°</td>
-                      <td>22°</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p>
-                  Coded and designed by Samantha Kenyon.
-                  <span
-                    ><a href="https://github.com/sammiek88/Weather-App.git"
-                      >Open Source Code</a
-                    >
-                  </span>
-                </p>
+                <div class="Forecast" id="forecast">
+                  <div class="day">Mon</div>
+                  <div class="iconForecast"><i class="fas fa-sun"></i></div>
+                  <div><span>18</span> °C</div>
+                </div>
               </div>
             </div>
           </div>
@@ -219,5 +184,13 @@
       </div>
       <script src="node.js"></script>
     </div>
+    <p class="code">
+      Coded and designed by Samantha Kenyon.
+      <span
+        ><a href="https://github.com/sammiek88/Weather-App.git"
+          >Open Source Code</a
+        >
+      </span>
+    </p>
   </body>
 </html>

@@ -100,3 +100,16 @@ ul {
   line-height: 4em;
   font-weight: 400;
 }
+
+.day {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.iconForecast {
+  margin-bottom: 5px;
+}
+
+.code {
+  color: white;
+}

@@ -23,7 +23,27 @@ function date(timestamp) {
   return `${daysweek[day]} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector('#forecast');
+  let day = ['Fri', 'Sat', 'Sun', 'Mon', 'Tues'];
+
+  let forecastHTML = `<div class = "row">`;
+  day.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class = "col - 2">
+    <div class="day">${day[0]}</div>
+                <div class="iconForecast"><i class="fas fa-sun"></i></div>
+                <div><span>18</span> °C</div> 
+                </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 function showweather(response) {
+  console.log(response);
   document.querySelector('#city').innerHTML = response.data.name;
   let latestTemp = document.querySelector('#temp-celcuis');
   latestTemp.innerHTML = Math.round(response.data.main.temp);
@@ -38,14 +58,17 @@ function showweather(response) {
     document.querySelector('#brolly').innerHTML = `Don't forget your coat!🧥`;
   }
   document.querySelector('#humidity').innerHTML = response.data.main.humidity;
-  document.querySelector('#feelslike').innerHTML =
-    response.data.main.feels_like;
-  document.querySelector('#windspeed').innerHTML = response.data.wind.speed;
+  document.querySelector('#feelslike').innerHTML = Math.round(
+    response.data.main.feels_like
+  );
+  document.querySelector('#windspeed').innerHTML = Math.round(
+    response.data.wind.speed
+  );
   document.querySelector('#description').innerHTML =
     response.data.weather[0].description;
   iconElement.setAttribute(
     'src',
-    `https://openweathermap.org/img/wn/${iconImage}.png`
+    `https://openweathermap.org/img/wn/${iconImage}@2x.png`
   );
   iconElement.setAttribute('alt', response.data.weather[0].description);
 
@@ -126,7 +149,7 @@ currentLocationbutton.addEventListener('click', getcurrentlocation);
 
 //default of Manchester
 searchcity('Manchester');
-
+displayForecast();
 //function changeTemp(event) {
 // event.preventDefault;
 // let apiKey = 'e4078cf116e415a86a523b0d99dfe1fa';
