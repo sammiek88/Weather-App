@@ -7,7 +7,7 @@ function date(timestamp) {
   }
   let minutes = date.getMinutes();
   if (minutes < 10) {
-    minutes = `0${minutes}`;
+    minutes = `${minutes}`;
   }
   let daysweek = [
     'Sunday',
@@ -34,25 +34,23 @@ function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector('#forecast');
 
-  let forecastHTML = `<div class = "row">`;
+  let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
-        `<div class = "col - 2">
-    <div class="day">${formatDay(forecastDay.dt)}</div>
-    <div class="iconForecast">
-    <img
-    src = "https://openweathermap.org/img/wn/${
-      forecastDay.weather[0].icon
-    }@2x.png"
-    alt = "">
-    </img>
-              </div>
-                <div><span>${Math.round(forecastDay.temp.max)}</span> °C</div> 
-                </div>
-                 <div><span>${Math.round(forecastDay.temp.min)}</span> °C</div> 
-                </div>`;
+        `<div class="col-2">
+          <div class="day">${formatDay(forecastDay.dt)}</div>
+          <div class="iconForecast">
+            <img
+            src = "https://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png"
+            alt="" />
+          </div>
+          <div><span>${Math.round(forecastDay.temp.max)}</span> °C</div> 
+          <div><span>${Math.round(forecastDay.temp.min)}</span> °C</div> 
+        </div>`;
     }
   });
   forecastHTML = forecastHTML + `</div>`;
