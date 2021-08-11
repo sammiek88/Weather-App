@@ -29,8 +29,38 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+function formathour(timestamp) {
+  let hour = new Date(timestamp * 1000);
+  let hours = hour.getHours();
+  let timeHour = [
+    '1 PM',
+    '2PM',
+    '3PM',
+    '4PM',
+    '5PM',
+    '6PM',
+    '7PM',
+    '8PM',
+    '9PM',
+    '10PM',
+    '11PM',
+    '12PM',
+    '1 AM',
+    '2AM',
+    '3AM',
+    '4AM',
+    '5AM',
+    '6AM',
+    '7AM',
+    '8AM',
+    '9AM',
+    '10AM',
+    '11AM',
+    '12AM',
+  ];
+  return timeHour[hours];
+}
 function displayForecast(response) {
-  console.log(response);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector('#forecast');
 
@@ -51,6 +81,41 @@ function displayForecast(response) {
           <div><span>${Math.round(forecastDay.temp.max)}</span> °C</div> 
           <div><span>${Math.round(forecastDay.temp.min)}</span> °C</div> 
         </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  dailyForecast(response);
+}
+
+function dailyForecast(response) {
+  console.log(response.data.hourly);
+
+  let hourforecast = response.data.hourly;
+  let hourforecastElement = document.querySelector('#dailyforecast');
+
+  let hourforecastHTML = `<div class="row">`;
+  hourforecast.forEach(function (forecastDay, index) {
+    if (index < 4) {
+      hourforecastHTML =
+        hourforecastHTML +
+        `<div class="col-2">
+                  <div class="card dailyforecast">
+                    <div class="dailyForecast" id="dailyforecast">
+                       <div class="time">${formathour(forecastDay.dt)}</div>
+                      <img
+            src = "https://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png"
+            alt="" />
+                      <div><span>18</span> °C</div>
+                    </div>
+                  </div>
+                  <div><span>${Math.round(
+                    forecastDay.temp.max
+                  )}</span> °C</div> 
+          <div><span>${Math.round(forecastDay.temp.min)}</span> °C</div>
+          </div>`;
     }
   });
   forecastHTML = forecastHTML + `</div>`;
