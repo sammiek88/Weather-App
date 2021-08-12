@@ -18,6 +18,10 @@ ul {
   margin-bottom: 5%;
 }
 
+.card {
+  border: none;
+}
+
 .all {
   color: black;
 }
@@ -101,13 +105,22 @@ ul {
   font-weight: 400;
 }
 
-.day {
+.Forecast {
   font-weight: 500;
   margin-bottom: 5px;
+  text-align: center;
 }
 
 .iconForecast {
   margin-bottom: 5px;
+}
+
+.dailyForecast {
+  text-align: center;
+  font-weight: 500;
+}
+
+.fiveDayForcast {
 }
 
 .code {
