@@ -33,18 +33,6 @@ function formathour(timestamp) {
   let hour = new Date(timestamp * 1000);
   let hours = hour.getHours();
   let timeHour = [
-    '1 PM',
-    '2PM',
-    '3PM',
-    '4PM',
-    '5PM',
-    '6PM',
-    '7PM',
-    '8PM',
-    '9PM',
-    '10PM',
-    '11PM',
-    '12PM',
     '1 AM',
     '2AM',
     '3AM',
@@ -57,6 +45,18 @@ function formathour(timestamp) {
     '10AM',
     '11AM',
     '12AM',
+    '1PM',
+    '2PM',
+    '3PM',
+    '4PM',
+    '5PM',
+    '6PM',
+    '7PM',
+    '8PM',
+    '9PM',
+    '10PM',
+    '11PM',
+    '12PM',
   ];
   return timeHour[hours];
 }
@@ -96,10 +96,10 @@ function dailyForecast(response) {
 
   let hourforecastHTML = `<div class="row">`;
   hourforecast.forEach(function (forecastDay, index) {
-    if (index < 4) {
+    if (index < 3) {
       hourforecastHTML =
         hourforecastHTML +
-        `<div class="col-2">
+        `<div class="col-4">
                   <div class="card dailyforecast">
                     <div class="dailyForecast" id="dailyforecast">
                        <div class="time">${formathour(forecastDay.dt)}</div>
@@ -108,18 +108,16 @@ function dailyForecast(response) {
               forecastDay.weather[0].icon
             }@2x.png"
             alt="" />
-                      <div><span>18</span> °C</div>
+                      
                     </div>
                   </div>
-                  <div><span>${Math.round(
-                    forecastDay.temp.max
-                  )}</span> °C</div> 
-          <div><span>${Math.round(forecastDay.temp.min)}</span> °C</div>
+                  <div><span>${Math.round(forecastDay.temp)}</span> °C</div> 
+          
           </div>`;
     }
   });
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
+  hourforecastHTML = hourforecastHTML + `</div>`;
+  hourforecastElement.innerHTML = hourforecastHTML;
 }
 
 function getForecast(coordinates) {
