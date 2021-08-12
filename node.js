@@ -44,7 +44,7 @@ function formathour(timestamp) {
     '9AM',
     '10AM',
     '11AM',
-    '12AM',
+    '12PM',
     '1PM',
     '2PM',
     '3PM',
@@ -56,7 +56,7 @@ function formathour(timestamp) {
     '9PM',
     '10PM',
     '11PM',
-    '12PM',
+    '12AM',
   ];
   return timeHour[hours];
 }
