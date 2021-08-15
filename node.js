@@ -78,9 +78,13 @@ function displayForecast(response) {
             }@2x.png"
             alt="" />
           </div>
-          <div><span>${Math.round(forecastDay.temp.max)}</span> °C</div> 
-          <div><span>${Math.round(forecastDay.temp.min)}</span> °C</div> 
-        </div>`;
+          <div><span>${Math.round(
+            forecastDay.temp.max
+          )}</span> <span>°C </span><span>(MAX)</span></div> 
+          <div><span>${Math.round(forecastDay.temp.min)}</span> °C (MIN)</div> 
+         </br>
+          </div>
+       `;
     }
   });
   forecastHTML = forecastHTML + `</div>`;
