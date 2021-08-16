@@ -7,7 +7,7 @@ function date(timestamp) {
   }
   let minutes = date.getMinutes();
   if (minutes < 10) {
-    minutes = `${minutes}`;
+    minutes = `0${minutes}`;
   }
   let daysweek = [
     'Sunday',
